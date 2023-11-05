@@ -1,0 +1,48 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'ecom/style.css' %}" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+
+{% if callback.result.products %}
+    <section class="cat-header">
+        {% if callback.result.desktop_image != None %}
+            <div class="cat-banner"><img src="{{ callback.result.desktop_image }}" alt="{{ callback.result.name }}" srcset="{{ callback.result.desktop_image }}"></div>
+        {% endif %}
+        <div class="cat-info"><span class="cat-name">{{ callback.result.name }}</span> <span class="cat-product-count">({{ callback.result.count }} products)</span></div>
+    </section>
+    <section class="products">
+        <div class="product-grid">
+            {% for product in callback.result.products %}
+            <a class="product-card" href="javascript:void(0);">
+                <div class="product-card-div">
+                    <img class="product-image" src="{{ product.image }}" alt="{{ product.description }}"
+                        srcset="{{ product.image }}" />
+                    <div class="product-info">
+                        <div class="product-brand">{{ product.brand }}</div>
+                        <div class="product-name">{{ product.name }}</div>
+                        <div class="product-price">
+                            <span class="product-selling-price">&#8377;{{ product.selling_price }}</span>
+                            <span class="product-mrp">&#8377;{{ product.price }}</span>
+                            <span class="product-disc-per">({{ product.discount }}% OFF)</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        <div class="page-nav">
+            {% if current_page_no != 1 %}
+            <a class="prev-pg-btn" href="{% url 'ecom:index' cat_url prev_page_no %}">
+                <div>Previous</div>
+            </a>
+            {% endif %}
+            <div class="current-pg-indicator">{{ current_page_no }}</div>
+            {% if current_page_no < total_page_count %} 
+            <a class="next-pg-btn" href="{% url 'ecom:index' cat_url next_page_no %}">
+                <div>Next</div>
+            </a>
+            {% endif %}
+        </div>
+    </section>
+{% else %}
+    <p>No products found.</p>
+{% endif %}
