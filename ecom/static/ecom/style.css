@@ -7,6 +7,33 @@ a {
     color: rgb(20, 20, 20);
 }
 
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
+.nav-header .site-log {
+    width: 20%;
+}
+.nav-header .cat-nav-menu {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-header .category-link {
+    line-height: 3rem;
+    margin: 0 1rem;
+}
+.nav-header .category-link:hover {
+    color: rgb(255, 95, 95);
+    transition-duration: 200ms;
+}
 .cat-header .cat-banner {
     text-align: center;
 }

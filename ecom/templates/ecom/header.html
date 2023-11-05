@@ -1,0 +1,10 @@
+<section class="nav-header">
+    <div class="site-logo"><img src="https://www.getketch.com/images/logo.png" alt="KETCH" srcset="https://www.getketch.com/images/logo.png"></div>
+    <div class="cat-nav-menu">
+        {% if cat_tree.result %}
+            {% for category in cat_tree.result %}
+                <a href="{% url 'ecom:index' category.menu_url_key 1 %}" class="category-link">{{ category.name }}</a>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>

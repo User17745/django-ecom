@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dJango eComm</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ecom/style.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        {% block ecom/product-list %}
+        {% endblock %}
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>
