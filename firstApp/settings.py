@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "invoiceMgt.apps.InvoicemgtConfig",
     "polls.apps.PollsConfig",
     "ecom.apps.EcomConfig",
     'django.contrib.admin',

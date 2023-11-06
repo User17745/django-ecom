@@ -9,9 +9,7 @@ def index(request, cat_url="winter-wear", page_no=1):
 
     cat_tree = call_api("https://getketchpim.getketch.com/pim/pimresponse.php/?service=menu&store=1");
     plp = call_api(f"https://getketchpim.getketch.com/pim/pimresponse.php/?service=category&store=1&url_key={cat_url}&page={page_no}&count={per_page_product_count}&sort_by=&sort_dir=desc&filter=");
-    # return HttpResponse(json.dumps(plp))
 
-    # total_page_count = plp.result.count / per_page_product_count;
     context = {"cat_tree" : cat_tree, "callback" : plp, "cat_url": cat_url, "current_page_no": page_no, "next_page_no": page_no+1, "prev_page_no": page_no-1, "total_page_count": 100} 
     return render(request, "ecom/index.html", context)
 
