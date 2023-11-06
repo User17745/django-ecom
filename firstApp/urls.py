@@ -21,4 +21,5 @@ urlpatterns = [
     path("polls/", include("polls.urls")),
     path('admin/', admin.site.urls),
     path('ecom/', include("ecom.urls")),
+    path('invoice_mgt/', include("invoiceMgt.urls")),
 ]
